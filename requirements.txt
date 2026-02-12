@@ -1,0 +1,6 @@
+numpy
+bsm2-python
+matplotlib
+gymnasium
+stable-baselines3
+torch
