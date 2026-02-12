@@ -24,9 +24,7 @@ This project implements a Reinforcement Learning (RL) framework using the **BSM1
 
 ```text
 ├── data/               # BSM1 Inflow data (Dry, Rain, Storm 2006)
-├── paper/              # LaTeX source for the research paper
 ├── results/            # Generated metrics, plots, and JSON results
-├── scripts/            # Helper scripts for evaluation and metrics
 ├── src/
 │   ├── algo/           # Custom RL algorithm implementations (CATD3, SAC, etc.)
 │   ├── config/         # Hyperparameters and curriculum settings
