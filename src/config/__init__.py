@@ -2,6 +2,8 @@ LIMIT_SNH = 4.0
 LIMIT_NTOT = 18.0
 
 LIMITS = {
+    "SNH": LIMIT_SNH,
+    "Ntot": LIMIT_NTOT,
     "TSS": 30.0,
     "COD": 100.0,
     "BOD5": 10.0,
