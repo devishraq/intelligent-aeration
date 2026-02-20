@@ -1,0 +1,160 @@
+
+============================================================
+  STEP 1: TRAIN ALL ALGORITHMS (full curriculum)
+============================================================
+
+--- Training SAC ---
+09:31:47.313 INFO     Stabilized after 4158 iterations
+
+Stabilized after 4158 iterations
+
+  [sac] Phase 'phase1_dry': 16000 timesteps (2000 episodes x 8 steps)
+[sac/phase1_dry] reward=-69.89 (+/-26.62)
+09:40:15.154 INFO     Stabilized after 2463 iterations
+
+Stabilized after 2463 iterations
+
+  [sac] Phase 'phase2_rain': 9600 timesteps (1200 episodes x 8 steps)
+[sac/phase2_rain] reward=-23.56 (+/-13.96)
+09:45:18.389 INFO     Stabilized after 2463 iterations
+
+Stabilized after 2463 iterations
+
+  [sac] Phase 'phase3_storm': 9600 timesteps (1200 episodes x 8 steps)
+[sac/phase3_storm] reward=-53.32 (+/-55.56)
+  sac done in 18.7 min  (reward=-53.3249)
+
+--- Training TD3 ---
+  [td3] Phase 'phase1_dry': 16000 timesteps (2000 episodes x 8 steps)
+[td3/phase1_dry] reward=-59.37 (+/-25.09)
+  [td3] Phase 'phase2_rain': 9600 timesteps (1200 episodes x 8 steps)
+[td3/phase2_rain] reward=-12.57 (+/-4.40)
+  [td3] Phase 'phase3_storm': 9600 timesteps (1200 episodes x 8 steps)
+[td3/phase3_storm] reward=-40.77 (+/-28.22)
+  td3 done in 23.0 min  (reward=-40.7746)
+
+--- Training DDPG ---
+  [ddpg] Phase 'phase1_dry': 16000 timesteps (2000 episodes x 8 steps)
+[ddpg/phase1_dry] reward=-97.92 (+/-9.97)
+  [ddpg] Phase 'phase2_rain': 9600 timesteps (1200 episodes x 8 steps)
+[ddpg/phase2_rain] reward=-30.31 (+/-20.74)
+  [ddpg] Phase 'phase3_storm': 9600 timesteps (1200 episodes x 8 steps)
+[ddpg/phase3_storm] reward=-57.37 (+/-20.99)
+  ddpg done in 20.7 min  (reward=-57.3671)
+
+--- Training CATD3 ---
+  [catd3] Phase 'phase1_dry': 16000 timesteps (2000 episodes x 8 steps)
+[catd3/phase1_dry] reward=-81.86 (+/-11.61)
+  [catd3] Phase 'phase2_rain': 9600 timesteps (1200 episodes x 8 steps)
+[catd3/phase2_rain] reward=-15.98 (+/-3.58)
+  [catd3] Phase 'phase3_storm': 9600 timesteps (1200 episodes x 8 steps)
+[catd3/phase3_storm] reward=-34.46 (+/-23.97)
+  catd3 done in 23.4 min  (reward=-34.4619)
+
+--- Training CATD3_CASCADE ---
+  [catd3_cascade] Phase 'phase1_dry': 16000 timesteps (2000 episodes x 8 steps)
+[catd3_cascade/phase1_dry] reward=-97.59 (+/-10.11)
+  [catd3_cascade] Phase 'phase2_rain': 9600 timesteps (1200 episodes x 8 steps)
+[catd3_cascade/phase2_rain] reward=-10.87 (+/-3.42)
+  [catd3_cascade] Phase 'phase3_storm': 9600 timesteps (1200 episodes x 8 steps)
+[catd3_cascade/phase3_storm] reward=-44.00 (+/-45.29)
+  catd3_cascade done in 23.3 min  (reward=-44.0015)
+
+--- Training CATD3_LAGRANGIAN ---
+  [catd3_lagrangian] Phase 'phase1_dry': 16000 timesteps (2000 episodes x 8 steps)
+[catd3_lagrangian/phase1_dry] reward=-59.99 (+/-20.02)
+  [catd3_lagrangian] Phase 'phase2_rain': 9600 timesteps (1200 episodes x 8 steps)
+[catd3_lagrangian/phase2_rain] reward=-12.40 (+/-2.72)
+  [catd3_lagrangian] Phase 'phase3_storm': 9600 timesteps (1200 episodes x 8 steps)
+[catd3_lagrangian/phase3_storm] reward=-35.89 (+/-35.03)
+  catd3_lagrangian done in 22.1 min  (reward=-35.8896)
+
+============================================================
+  STEP 2: EVALUATE (5 episodes x 3 scenarios x all algos)
+============================================================
+  SAC                  dry   ... EQI=  7350  OCI=  4971  SNH=4.35  Ntot=16.83
+  SAC                  rain  ... EQI=  9375  OCI=  5049  SNH=4.71  Ntot=16.14
+  SAC                  storm ... EQI=  7346  OCI=  4971  SNH=4.34  Ntot=16.82
+  TD3                  dry   ... EQI=  7218  OCI=  5803  SNH=3.47  Ntot=17.81
+  TD3                  rain  ... EQI=  9161  OCI=  5992  SNH=3.80  Ntot=16.97
+  TD3                  storm ... EQI=  7214  OCI=  5802  SNH=3.46  Ntot=17.80
+  DDPG                 dry   ... EQI=  7271  OCI=  7027  SNH=2.92  Ntot=19.09
+  DDPG                 rain  ... EQI=  9202  OCI=  7027  SNH=3.36  Ntot=17.95
+  DDPG                 storm ... EQI=  7267  OCI=  7027  SNH=2.92  Ntot=19.08
+  CATD3                dry   ... EQI=  7239  OCI=  6059  SNH=3.66  Ntot=17.57
+  CATD3                rain  ... EQI=  9246  OCI=  6217  SNH=4.02  Ntot=16.86
+  CATD3                storm ... EQI=  7234  OCI=  6060  SNH=3.65  Ntot=17.57
+  CATD3_CASCADE        dry   ... EQI=  7304  OCI=  5090  SNH=4.09  Ntot=17.05
+  CATD3_CASCADE        rain  ... EQI=  9227  OCI=  5331  SNH=4.30  Ntot=16.32
+  CATD3_CASCADE        storm ... EQI=  7299  OCI=  5090  SNH=4.09  Ntot=17.05
+  CATD3_LAGRANGIAN     dry   ... EQI=  7237  OCI=  5723  SNH=3.63  Ntot=17.56
+  CATD3_LAGRANGIAN     rain  ... EQI=  9172  OCI=  5875  SNH=3.91  Ntot=16.76
+  CATD3_LAGRANGIAN     storm ... EQI=  7233  OCI=  5722  SNH=3.62  Ntot=17.55
+
+  Saved evaluation.json
+
+============================================================
+  STEP 3: GENERATING MAIN PLOTS
+============================================================
+  Saved eqi_comparison.png
+  Saved oci_comparison.png
+  Saved snh_comparison.png
+  Saved ntot_comparison.png
+  Saved ae_comparison.png
+  Saved oci_vs_eqi.png
+  Saved pareto_frontier.png
+  Saved violations_heatmap.png
+  Saved radar_dry.png
+  Saved radar_rain.png
+  Saved radar_storm.png
+  Saved energy_breakdown.png
+  Saved summary_table.png
+  Saved dominance.png
+  Saved ts_catd3_dry.png
+  Saved ts_catd3_rain.png
+  Saved ts_catd3_storm.png
+  Saved ts_td3_storm.png
+
+============================================================
+  STEP 4: GENERATING ABLATION PLOTS
+============================================================
+  Saved ablation_bars.png
+  Saved ablation_kla_profiles.png
+  Saved ablation_table.png
+
+============================================================
+  COMPLETE - 131.4 min total
+============================================================
+
+  ────────────────────────────────────────
+  MAIN COMPARISON (4 algorithms)
+  ────────────────────────────────────────
+  Algo         Scene     EQI    OCI   SNH  Ntot   COD  BOD5   TSS  V(SNH)  V(Ntot)   OK
+  ------------------------------------------------------------------------------------------
+  SAC          dry      7350   4971  4.35 16.83  49.6  2.92 14.03     65%      20%   NO
+  SAC          rain     9375   5049  4.71 16.14  51.3  3.19 15.26     65%      15%   NO
+  SAC          storm    7346   4971  4.34 16.82  49.6  2.92 14.03     65%      20%   NO
+  TD3          dry      7218   5803  3.47 17.81  49.6  2.91 14.03     40%      25%  YES
+  TD3          rain     9161   5992  3.80 16.97  51.3  3.18 15.26     40%      20%  YES
+  TD3          storm    7214   5802  3.46 17.80  49.6  2.91 14.03     40%      25%  YES
+  DDPG         dry      7271   7027  2.92 19.09  49.6  2.91 14.03     25%      80%   NO
+  DDPG         rain     9202   7027  3.36 17.95  51.3  3.17 15.26     30%      65%  YES
+  DDPG         storm    7267   7027  2.92 19.08  49.6  2.91 14.03     25%      80%   NO
+  CATD3 (Ours) dry      7239   6059  3.66 17.57  49.6  2.91 14.03     30%      45%  YES
+  CATD3 (Ours) rain     9246   6217  4.02 16.86  51.3  3.18 15.26     35%      35%   NO
+  CATD3 (Ours) storm    7234   6060  3.65 17.57  49.6  2.91 14.03     30%      40%  YES
+
+  ────────────────────────────────────────
+  ABLATION STUDY (dry weather)
+  ────────────────────────────────────────
+  Variant                           EQI    OCI   SNH  Ntot  KLa3  KLa4  KLa5  V(SNH)  V(Ntot)
+  -----------------------------------------------------------------------------------------------
+  TD3                              7218   5803  3.47 17.81   360   329   184     40%      25%
+  CATD3-C (cascade only)           7304   5090  4.09 17.05   360   259   134     55%      20%
+  CATD3-L (Lagrangian only)        7237   5723  3.63 17.56   360   360   140     40%      25%
+  CATD3 (Ours)                     7239   6059  3.66 17.57   236   326   352     30%      45%
+
+  Results: results/evaluation.json
+  Plots:   results/plots/
+============================================================
+

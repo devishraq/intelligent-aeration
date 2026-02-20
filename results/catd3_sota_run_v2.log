@@ -1,0 +1,100 @@
+  Loaded existing results for ['sac', 'td3', 'ddpg', 'catd3', 'catd3_cascade', 'catd3_lagrangian']
+
+============================================================
+  STEP 1: RETRAIN CATD3 (Optimized SOTA)
+============================================================
+
+--- Training CATD3 ---
+16:30:02.025 INFO     Stabilized after 4158 iterations
+
+Stabilized after 4158 iterations
+
+  [catd3] Phase 'phase1_dry': 16000 timesteps (2000 episodes x 8 steps)
+[catd3/phase1_dry] reward=-71.81 (+/-36.70)
+16:41:04.478 INFO     Stabilized after 2463 iterations
+
+Stabilized after 2463 iterations
+
+  [catd3] Phase 'phase2_rain': 9600 timesteps (1200 episodes x 8 steps)
+[catd3/phase2_rain] reward=-29.69 (+/-11.26)
+16:48:16.202 INFO     Stabilized after 2463 iterations
+
+Stabilized after 2463 iterations
+
+  [catd3] Phase 'phase3_storm': 9600 timesteps (1200 episodes x 8 steps)
+[catd3/phase3_storm] reward=-57.65 (+/-33.94)
+  catd3 done in 24.7 min  (reward=-57.6462)
+
+============================================================
+  STEP 2: EVALUATE NEW CATD3
+============================================================
+  CATD3                dry   ... EQI=  7715  OCI=  5430  SNH=5.58  Ntot=16.48
+  CATD3                rain  ... EQI=  9693  OCI=  5473  SNH=5.71  Ntot=15.88
+  CATD3                storm ... EQI=  7710  OCI=  5430  SNH=5.57  Ntot=16.47
+
+  Updated evaluation.json with new CATD3 results
+
+============================================================
+  STEP 3: GENERATING MAIN PLOTS
+============================================================
+  Saved eqi_comparison.png
+  Saved oci_comparison.png
+  Saved snh_comparison.png
+  Saved ntot_comparison.png
+  Saved ae_comparison.png
+  Saved oci_vs_eqi.png
+  Saved pareto_frontier.png
+  Saved violations_heatmap.png
+  Saved radar_dry.png
+  Saved radar_rain.png
+  Saved radar_storm.png
+  Saved energy_breakdown.png
+  Saved summary_table.png
+  Saved dominance.png
+  Saved ts_catd3_dry.png
+  Saved ts_catd3_rain.png
+  Saved ts_catd3_storm.png
+
+============================================================
+  STEP 4: GENERATING ABLATION PLOTS
+============================================================
+  Saved ablation_bars.png
+  Saved ablation_kla_profiles.png
+  Saved ablation_table.png
+
+============================================================
+  COMPLETE - 24.8 min total
+============================================================
+
+  ────────────────────────────────────────
+  MAIN COMPARISON (4 algorithms)
+  ────────────────────────────────────────
+  Algo         Scene     EQI    OCI   SNH  Ntot   COD  BOD5   TSS  V(SNH)  V(Ntot)   OK
+  ------------------------------------------------------------------------------------------
+  SAC          dry      7350   4971  4.35 16.83  49.6  2.92 14.03     65%      20%   NO
+  SAC          rain     9375   5049  4.71 16.14  51.3  3.19 15.26     65%      15%   NO
+  SAC          storm    7346   4971  4.34 16.82  49.6  2.92 14.03     65%      20%   NO
+  TD3          dry      7218   5803  3.47 17.81  49.6  2.91 14.03     40%      25%  YES
+  TD3          rain     9161   5992  3.80 16.97  51.3  3.18 15.26     40%      20%  YES
+  TD3          storm    7214   5802  3.46 17.80  49.6  2.91 14.03     40%      25%  YES
+  DDPG         dry      7271   7027  2.92 19.09  49.6  2.91 14.03     25%      80%   NO
+  DDPG         rain     9202   7027  3.36 17.95  51.3  3.17 15.26     30%      65%  YES
+  DDPG         storm    7267   7027  2.92 19.08  49.6  2.91 14.03     25%      80%   NO
+  CATD3 (Ours) dry      7715   5430  5.58 16.48  49.7  2.93 14.03     80%      15%   NO
+  CATD3 (Ours) rain     9693   5473  5.71 15.88  51.4  3.20 15.26     75%      10%   NO
+  CATD3 (Ours) storm    7710   5430  5.57 16.47  49.7  2.93 14.03     80%      15%   NO
+
+  ────────────────────────────────────────
+  ABLATION STUDY (dry weather)
+  ────────────────────────────────────────
+  Variant                           EQI    OCI   SNH  Ntot  KLa3  KLa4  KLa5  V(SNH)  V(Ntot)
+  -----------------------------------------------------------------------------------------------
+  TD3                              7218   5803  3.47 17.81   360   329   184     40%      25%
+  CATD3-C (cascade only)           7304   5090  4.09 17.05   360   259   134     55%      20%
+  CATD3-L (Lagrangian only)        7237   5723  3.63 17.56   360   360   140     40%      25%
+  CATD3 (Ours)                     7715   5430  5.58 16.48   359   279   161     80%      15%
+
+  Results: results/evaluation.json
+  Plots:   results/plots/
+============================================================
+

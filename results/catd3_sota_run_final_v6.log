@@ -1,0 +1,14 @@
+  Loaded existing results for ['sac', 'td3', 'ddpg', 'catd3', 'catd3_cascade', 'catd3_lagrangian']
+
+============================================================
+  STEP 1: RETRAIN CATD3 (Optimized SOTA)
+============================================================
+
+--- Training CATD3 ---
+17:57:55.649 INFO     Stabilized after 4158 iterations
+
+Stabilized after 4158 iterations
+
+  [catd3] Phase 'phase1_dry': 12000 timesteps (1500 episodes x 8 steps)
+/opt/homebrew/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:301: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-csvfczpc'}
+  warnings.warn(

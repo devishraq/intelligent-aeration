@@ -1,8 +1,12 @@
-import json
+# ── Thread configuration MUST happen before torch internalises thread count ──
 import os
+os.environ["OMP_NUM_THREADS"] = "2"
+os.environ["MKL_NUM_THREADS"] = "2"
+
+import json
 import time
 import torch
-from multiprocessing import cpu_count
+torch.set_num_threads(2)
 
 from .algo import ALGO_MAP, build_sb3_agent
 from .environment.factory import create_training_env
@@ -10,16 +14,7 @@ from .evaluation import evaluate_agent, log_metrics
 from .config import get_curriculum
 
 
-def _configure_cpu():
-    cpus = cpu_count() or 4
-    torch.set_num_threads(cpus)
-    os.environ.setdefault("OMP_NUM_THREADS", str(cpus))
-    os.environ.setdefault("MKL_NUM_THREADS", str(cpus))
-
-
 def train(method, mode="demo", seed=42, verbose=1):
-    _configure_cpu()
-
     curriculum = get_curriculum(mode)
     agent = None
     phase_results = []
